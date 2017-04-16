@@ -68,6 +68,10 @@ function fixHead($compile, $window) {
         table.original.css('marginTop', '-' + height + 'px');
       }
       
+      function headerHeight(height) {
+        table.clone.css('minHeight', height + 'px'); // Temp fix for table header height
+      }
+      
       function updateCells() {
         var cells = {
           clone: getCells(header.clone),
@@ -91,6 +95,7 @@ function fixHead($compile, $window) {
           
           var setWidth = function () {
             marginTop(height());
+            headerHeight(height());
             clone.css({minWidth: style.width, maxWidth: style.width});
           };
           
